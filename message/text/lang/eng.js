@@ -2,15 +2,17 @@
 const { prefix } = require('../../../config.json')
 
 exports.wait = () => {
-    return `Please wait a moment...`
+	var rtaWait = ["Banca un cacho 🧉", "Toma una empanadita mientras esperas 🥟" , "Y yo le dije 'The game' 🍺", "Ta para unos mates, no? 🧉", "La tuya por las dudas", "Level! dijo Hunter", "Tengo hambre", "Pagame un cafecito, MINIMO NO?", "Colo se la come", "No te olvides de reportar a tu vieja"]
+	var rtaWaitValue = rtaWait[Math.floor(Math.random() * rtaWait.length)]
+    return rtaWaitValue
 }
 
 exports.ok = () => {
-    return `Done!`
+    return `Listo!`
 }
 
 exports.wrongFormat = () => {
-    return `Incorrect format! Please check usage at *${prefix}menu*`
+    return `Cuchame una cosa, el comando no es asi, fijate como se usa no te lo repito mas: *${prefix}menu*`
 }
 
 exports.emptyMess = () => {
@@ -18,7 +20,7 @@ exports.emptyMess = () => {
 }
 
 exports.cmdNotFound = (cmd) => {
-    return `Command *${prefix}${cmd}* not found!`
+    return `Che mostr@, *${prefix}${cmd}* no existe !`
 }
 
 exports.blocked = (ownerNumber) => {
@@ -38,7 +40,7 @@ exports.adminOnly = () => {
 }
 
 exports.addedGroup = (chat) => {
-    return `Thanks for inviting me, members of *${chat.contact.name}*!\n\nPlease register by typing:\n*${prefix}register* name`
+    return `Gracias por invitarme che, banda de *${chat.contact.name}*!\n\nUsen '.menu' para los comandos`
 }
 
 exports.listBlock = (blockNumber) => {
@@ -75,23 +77,19 @@ exports.notRegistered = () => {
 
 exports.registered = (name, userId, time, serial) => {
     return `
-*── 「 REGISTRATION 」 ──*
+*── 「 REGISTRACION 」 ──*
     
-Your account has been created with data below:
-➸ *Name*: ${name}
+Te registraste che:
+➸ *Nombre*: ${name}
 ➸ *ID*: ${userId}
-➸ *Registered on*: ${time}
-➸ *Serial*: ${serial}
+➸ *Registrado el*: ${time}
     
-Note:
-Don't share your *serial* to anyone!
-    
-Type *${prefix}rules* to see the rules.
+Tipea *${prefix}rules* para ver las reglas.
     `
 }
 
 exports.registeredAlready = () => {
-    return `You've registered before.`
+    return `Ya tas registrado che.`
 }
 
 exports.received = (pushname) => {
@@ -104,19 +102,19 @@ exports.daily = (time) => {
 
 exports.profile = (username, status, premi, benet, adm, level, requiredXp, xp) => {
     return `
-*── 「 USER INFO」 ──*
+*── 「 A ver quien es este crack」 ──*
 
-➸ *Username*: ${username}
-➸ *Status*: ${status}
-➸ *Premium*: ${premi}
-➸ *Banned*: ${benet}
-➸ *Admin*: ${adm}
+➸ *Nombre*: ${username}
+➸ *Estado de WhatsApp*: ${status}
+➸ *Es premium?*: ${premi}
+➸ *Esta baneado? (ojala que si)*: ${benet}
+➸ *Es Admin TITAN?*: ${adm}
 
 =_=_=_=_=_=_=_=_=_=_=_=_=
 
-*── 「 PROGRESS 」 ──*
+*── 「 Progreso 」 ──*
 
-➸ *Level*: ${level}
+➸ *Nivel*: ${level}
 ➸ *XP*: ${xp} / ${requiredXp}
     `
 }
@@ -860,18 +858,9 @@ _Index of [10]_
 
 exports.rules = () => {
     return `
-*── 「 RULES 」 ──*
+*── 「 REGLAS 」 ──*
 
-1. Do NOT spam bot. 
-Penalty: *WARN/SOFT BLOCK*
-
-2. Do NOT call bot.
-Penalty: *SOFT BLOCK*
-
-3. Do NOT exploit bots.
-Penalty: *PERMANENT BLOCK*
-
-If you've understand these rules, please type *${prefix}menu* to get started.
+La primera regla del Club de la lucha es: nadie habla sobre el Club de la lucha. La segunda regla del Club de la lucha es: NADIE habla sobre el Club de la lucha. La tercera regla es: la pelea termina cuando uno de los contendientes grita «alto», pierde la vertical o hace una señal.
     `
 }
 
@@ -880,18 +869,6 @@ exports.tos = (ownerNumber) => {
     return `
 *── 「 TERMS OF SERVICE 」 ──*
 
-This bot is an open-source bot, come with the name of BocchiBot which is available on GitHub for free.
-The owner/hoster of this bot is independent from the responsibility and supervision of the developer (Slavyan).
-Owner/hoster may plagiarize, add, delete, replace source code with notes *DO NOT SELL* this source code in any form.
-If an error occurs, the first person you should contact is the owner/hoster.  
-
-If you want to contributing to this project, visit:
-https://github.com/SlavyanDesu/BocchiBot
-
-Contact person:
-wa.me/${ownerNumber.replace('@c.us', '')} (Owner/hoster)
-
-Regards,
-Slavyan
+Hola soy los terminos y condiciones bla bla bla *siguiente* *siguiente* *aceptar*
     `
 }
